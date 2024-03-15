@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = 4131;
+const port = process.env.PORT 
 const sendEmail = require('./resources/js/email');
 app.set("views", "templates");
 app.set("view engine", "pug");
