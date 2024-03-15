@@ -1,0 +1,21 @@
+doctype html
+html
+  head
+    title ADPhi Emailer
+    link(rel='stylesheet' type='text/css' href='../css/main.css')
+  body
+    h1 ΑΔΦ Emailer
+    form#emailForm(method="post", action="/endpoint/send-email")
+      .form-group
+        label(for="singleEmail") Email Address
+        input#singleEmail(type="email", name="singleEmail", required=true, placeholder="Your email")
+
+      .form-group
+        label(for="emailList") Email List
+        textarea#emailList(name="emailList", required=true, placeholder="List of emails, separated by commas")
+
+      .form-group
+        label(for="code") Code
+        input#code(type="text", name="code", required=true, placeholder="Enter the associated account App Password")
+
+      button(type="submit") Send Email
