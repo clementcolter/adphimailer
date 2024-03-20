@@ -74,3 +74,26 @@ body {
     max-width: 400px;
     width: 100%;
   }
+
+  .form-group input[type="checkbox"] {
+    margin-right: 10px;
+  }
+  
+  .dateTimePicker {
+    margin-top: 10px;
+    margin-left: 20px;
+    border-left: 2px solid #007bff;
+    padding-left: 20px;
+  }
+  
+  .dateTimePicker .form-group {
+    margin-bottom: 10px;
+  }
+  
+  .dateTimePicker label {
+    margin-bottom: 2px;
+  }
+  
+  .dateTimePicker input {
+    margin-top: 2px;
+  }

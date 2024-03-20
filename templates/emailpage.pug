@@ -3,6 +3,7 @@ html
   head
     title ADPhi Emailer
     link(rel='stylesheet' type='text/css' href='../css/main.css')
+    link(rel='icon' href='../images/favicon.ico')
   body
     h1 ΑΔΦ Emailer
     form#emailForm(method="post", action="/endpoint/send-email")
@@ -17,5 +18,55 @@ html
       .form-group
         label(for="code") Code
         input#code(type="text", name="code", required=true, placeholder="Enter the associated account App Password")
+      .form-group
+        label(for="tier3") Tier 3
+        input#tier3(type="checkbox", name="tier3")
+        .dateTimePicker#tier3DateTimePicker(style="display:none;")
+          .form-group
+            label(for="tier3Date") Date
+            input(type="date", id="tier3Date", name="tier3Date")
+          .form-group
+            label(for="tier3Time") Time
+            input(type="time", id="tier3Time", name="tier3Time")
 
+      .form-group
+        label(for="wineWednesday") Wine Wednesday
+        input#wineWednesday(type="checkbox", name="wineWednesday")
+        .dateTimePicker#wineWednesdayDateTimePicker(style="display:none;")
+          .form-group
+            label(for="wineWednesdayDate") Date
+            input(type="date", id="wineWednesdayDate", name="wineWednesdayDate")
+          .form-group
+            label(for="wineWednesdayTime") Time
+            input(type="time", id="wineWednesdayTime", name="wineWednesdayTime")
+
+      .form-group
+        label(for="formal") Formal
+        input#formal(type="checkbox", name="formal")
+        .dateTimePicker#formalDateTimePicker(style="display:none;")
+          .form-group
+            label(for="formalDate") Date
+            input(type="date", id="formalDate", name="formalDate")
+          .form-group
+            label(for="formalTime") Time
+            input(type="time", id="formalTime", name="formalTime")
+      .form-group
+        label(for="additionalInfo") Email List
+        textarea#additionalInfo(name="additionalInfo", required=true, placeholder="Additional Info you would like to add to the email")
       button(type="submit") Send Email
+
+    script.
+      document.addEventListener('DOMContentLoaded', function () {
+          const checkboxes = document.querySelectorAll('input[type=checkbox]');
+          checkboxes.forEach(function(checkbox) {
+              checkbox.addEventListener('change', function() {
+                  const dateTimePickerId = checkbox.id + 'DateTimePicker';
+                  const dateTimePicker = document.getElementById(dateTimePickerId);
+                  if (checkbox.checked) {
+                      dateTimePicker.style.display = 'block';
+                  } else {
+                      dateTimePicker.style.display = 'none';
+                  }
+              });
+          });
+      });

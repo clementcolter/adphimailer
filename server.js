@@ -1,6 +1,6 @@
 const express = require('express');
 const app = express();
-const port = process.env.PORT 
+const port = 4131 
 const sendEmail = require('./resources/js/email');
 app.set("views", "templates");
 app.set("view engine", "pug");
@@ -17,9 +17,8 @@ app.get('/', (req , res) => {
 
 app.post('/endpoint/send-email', (req,res) =>{
     // Grab crap and verify 
-    body = req.body;
-
-    sendEmail(body.singleEmail, body.emailList, body.code).catch(console.error).then(x => {
+    body = req.body;    
+    sendEmail(body).catch(console.error).then(x => {
         if(x){
             res.render('success.pug');
             console.log("SUCCESS");
